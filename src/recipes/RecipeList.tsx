@@ -5,9 +5,8 @@ import { Recipe as APIRecipe, getRecipes } from "../services/apiFacade";
 //import { useAuth } from "../security/_Authprovider";
 
 export default function RecipeList() {
-  //const [queryString] = useSearchParams();
-  //const initialCategory = queryString.get("category");
-  const initialCategory = null;
+  const [queryString] = useSearchParams();
+  const initialCategory = queryString.get("category");
   const [recipes, setRecipes] = useState<Array<APIRecipe>>([]);
   const [category, setCategory] = useState<string | null>(initialCategory);
   const [error, setError] = useState("");
@@ -15,9 +14,8 @@ export default function RecipeList() {
 
   useEffect(() => {
     getRecipes(category)
-    .then((res) => setRecipes(res))
-    .catch(() => setError("Error fetching recipes, is the server running?"));
-
+      .then((res) => setRecipes(res))
+      .catch(() => setError("Error fetching recipes, is the server running?"));
   }, [category]);
 
   const recipeListItems = recipes.map((recipe) => {
@@ -30,8 +28,8 @@ export default function RecipeList() {
     );
   });
 
-  if(error!==""){
-    return <h2 style={{color:"red"}}>{error}</h2>
+  if (error !== "") {
+    return <h2 style={{ color: "red" }}>{error}</h2>;
   }
   return (
     <>
@@ -43,8 +41,7 @@ export default function RecipeList() {
             onClick={() => {
               setCategory(null);
               getRecipes(null).then((res) => setRecipes(res));
-            }}
-          >
+            }}>
             Clear
           </button>
         </div>
