@@ -13,7 +13,6 @@ export default function RecipesLayout() {
       </div>
       <div className="outlet-container">
         {outlet || <h3>Select a recipe to see details</h3>}
-        {/* <Outlet /> */}
       </div>
     </div>
   );
