@@ -23,6 +23,7 @@ export default function App() {
         <Route path="/add" element={<RecipeForm />} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="/logout" element={<Logout />} /> */}
+        <Route path="*" element={<h2>Not Found</h2>} />
       </Routes>
     </Layout>
   );
