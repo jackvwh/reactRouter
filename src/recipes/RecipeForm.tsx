@@ -38,11 +38,11 @@ export default function RecipeForm() {
     }));
   };
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // e.preventDefault();
-    // if (formData.id) {
-    //   deleteRecipe(Number(formData.id));
-    //   setFormData({ ...EMPTY_RECIPE });
-    // }
+    e.preventDefault();
+    if (formData.id) {
+      deleteRecipe(Number(formData.id));
+      setFormData({ ...EMPTY_RECIPE });
+    }
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
