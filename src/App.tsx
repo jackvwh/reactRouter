@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import Home from "./Home";
 import "./App.css";
 import RecipesLayout from "./recipes/RecipesLayout";
+import Logout from "./security/Logout";
 
 export default function App() {
   //const auth = useAuth();
@@ -22,7 +23,7 @@ export default function App() {
         </Route>
         <Route path="/add" element={<RecipeForm />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
+        <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<h2>Not Found</h2>} />
       </Routes>
     </Layout>
