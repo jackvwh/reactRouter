@@ -23,7 +23,6 @@ const Login = () => {
 
     setErr(null);
     console.log(err);
-    alert("Login: " + JSON.stringify(user));
     return auth
       .signIn(user)
       .then(() => {
