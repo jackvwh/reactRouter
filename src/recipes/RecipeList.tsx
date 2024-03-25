@@ -23,7 +23,7 @@ export default function RecipeList() {
       <li key={recipe.id}>
         <Link to={`${recipe.id}`}>{recipe.name}</Link>,
         {auth.isLoggedInAs(["ADMIN"]) && (
-          <Link className="recipe-btn" to="/add" state={recipe}>
+          <Link className="recipe-btn" to="/recipes/add" state={recipe}>
             Edit{" "}
           </Link>
         )}

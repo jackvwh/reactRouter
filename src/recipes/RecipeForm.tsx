@@ -17,6 +17,7 @@ const EMPTY_RECIPE = {
   youTube: "",
   ingredients: "",
   source: "",
+  owner: "",
 };
 
 export default function RecipeForm() {
@@ -48,6 +49,8 @@ export default function RecipeForm() {
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const addedOrEdited = formData.id ? "edited" : "added";
+    // set owner to the username of the logged in user
+    setFormData({ ...formData, owner: localStorage.getItem("username") || "" });
     const newRecipe = await addRecipe(formData);
     alert(`Recipe ${addedOrEdited} successfully!`);
     setFormData({ ...EMPTY_RECIPE });
