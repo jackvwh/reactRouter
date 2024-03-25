@@ -19,7 +19,14 @@ export default function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/categories" element={<Categories />}>
-          <Route path="add" element={<h1>Add a category</h1>} />
+          <Route
+            path="add"
+            element={
+              <RequireAuth roles={["ADMIN"]}>
+                <h1>Add a category</h1>
+              </RequireAuth>
+            }
+          />
         </Route>
 
         <Route path="/recipes" element={<RecipesLayout />}>
